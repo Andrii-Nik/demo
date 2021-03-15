@@ -7,7 +7,7 @@ try:
     browser.get(link)
 
     # Ваш код, который заполняет обязательные поля
-    input1 = browser.find_element_b('/html/body/div/form/div[1]/div[1]/input')
+    input1 = browser.find_element_by_xpath('/html/body/div/form/div[1]/div[1]/input')
     input1.send_keys('Ivan')
     input1 = browser.find_element_by_xpath('/html/body/div/form/div[1]/div[2]/input')
     input1.send_keys('Ivanov')

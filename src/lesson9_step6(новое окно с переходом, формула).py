@@ -1,23 +1,19 @@
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 from selenium import webdriver
 import time
 import math
-
-
+import os
 
 try:
-    link = "http://suninjuly.github.io/explicit_wait2.html"
+    link = "http://suninjuly.github.io/redirect_accept.html"
     browser = webdriver.Chrome("C:\\Users\\asdfg\\AppData\\Local\\Programs\\Python\\Python39\\Scripts\\chromedriver\\chromedriver.exe")
     browser.get(link)
-    button = browser.find_element_by_id('book')
-    WebDriverWait(browser, 12).until(
-        EC.text_to_be_present_in_element((By.ID, "price"), '100')
-    )
+
+    button = browser.find_element_by_xpath("/html/body/form/div/div/button")
     button.click()
 
-    browser.execute_script("window.scrollBy(0, 300);")
+    new_window = browser.window_handles[1]
+    print(new_window)
+    browser.switch_to.window(new_window)
 
 
     def calc(x):
@@ -33,9 +29,10 @@ try:
 
     button = browser.find_element_by_xpath('/html/body/form/div/div/button').click()
 
+
+
 finally:
     # успеваем скопировать код за 30 секунд
-    time.sleep(15)
+    time.sleep(30)
     # закрываем браузер после всех манипуляций
     browser.quit()
-
