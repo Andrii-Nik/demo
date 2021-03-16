@@ -7,13 +7,11 @@ try:
     browser = webdriver.Chrome("C:\\Users\\asdfg\\AppData\\Local\\Programs\\Python\\Python39\\Scripts\\chromedriver\\chromedriver.exe")
     browser.get(link)
 
-    # Ваш код, который заполняет обязательные поля
-    if required in input1:
-    input1 = browser.find_element('form-control.first + Input your first name')
+    input1 = browser.find_element_by_xpath('/html/body/div/form/div[1]/div[1]/input')
     input1.send_keys('Ivan')
-    input1 = browser.find_element_by_xpath('/html/body/div/form/div[1]/div[2]')
+    input1 = browser.find_element_by_xpath('/html/body/div/form/div[1]/div[2]/input')
     input1.send_keys('Ivanov')
-    input1 = browser.find_element_by_xpath('/html/body/div/form/div[1]/div[3]')
+    input1 = browser.find_element_by_xpath('/html/body/div/form/div[1]/div[3]/input')
     input1.send_keys('Ivanovich')
 
 
