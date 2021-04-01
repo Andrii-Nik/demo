@@ -2,9 +2,7 @@ import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
-options = Options()
-options.add_experimental_option('prefs', {'intl.accept_languages': user_language})
-browser = webdriver.Chrome(options=options)
+
 
 @pytest.fixture(scope="function")
 def browser():
@@ -13,5 +11,8 @@ def browser():
     yield browser
     print("\nquit browser..")
     browser.quit()
+    options = Options()
+    options.add_experimental_option('prefs', {'intl.accept_languages': es})
+    browser = webdriver.Chrome(options=options)
 
 
